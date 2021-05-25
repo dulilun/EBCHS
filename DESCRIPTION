@@ -1,16 +1,29 @@
 Package: EBCHS
-Title: What the Package Does
-Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
+Type: Package
+Title: An Empirical Bayes Method for Chi-Squared Data
+Version: 0.1.0.9000
+Authors@R: c(person(given = "Lilun",
+           family = "Du",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+           email = "dulilun@ust.hk"), 
+            person(given = "Inchi",
+           family = "Hu",
+           role = c("aut"),
+           email = "imichu@ust.hk"))
+Author: Lilun Du [aut, cre],
+  Inchi Hu [aut]
+Maintainer: Lilun DU <dulilun@ust.hk>
+Description: This package provoides the main R function to construct 
+    the posterior interval for the noncentrality of the chi-squared distribution. 
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Roxygen: list(markdown = TRUE)
+URL: https://github.com/dulilun/EBCHS
 RoxygenNote: 7.1.1
+Imports: 
+    stats,
+    pracma,
+    splines,
+    fda
+Suggests: 
+    testthat
