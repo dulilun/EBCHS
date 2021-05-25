@@ -60,10 +60,9 @@ EB_CS <- function(x,
     return(V_lambda_est)
   }
   # the possible value for Poisson
-  J_est <- function(x, l_1, l_2){
+  J_est <- function(x, l_1){
     g_k_2_g_est = 1+2*l_1
-    g_k_4_g_est = 4*l_2+(1+2*l_1)^2
-    J_hat = x/2*g_k_4_g_est/g_k_2_g_est-(k-4)/2
+    J_hat = x/2*g_k_2_g_est-(k-2)/2
     return(J_hat)
   }
 
@@ -81,7 +80,7 @@ EB_CS <- function(x,
     E_lambda_est = MF(x, l_1p, l_2p)
     V_lambda_est = VF(x, l_1p, l_2p, l_3p, l_4p)
 
-    J_hat = J_est(x, l_1p, l_2p)
+    J_hat = J_est(x, l_1p)
     J_hat = pmax(J_hat, 0)
     S_lambda_est <- 2/sqrt(J_hat+0.5)
 
@@ -93,7 +92,7 @@ EB_CS <- function(x,
     E_lambda_est = MF(x, l_1, l_2)
     V_lambda_est = VF(x, l_1, l_2, l_3p, l_4p)
 
-    J_hat = J_est(x, l_1, l_2)
+    J_hat = J_est(x, l_1)
     J_hat = pmax(J_hat, 0)
     S_lambda_est <- 2/sqrt(J_hat+0.5)
 
@@ -112,7 +111,7 @@ EB_CS <- function(x,
     E_lambda_est = MF(x, l_1, l_2)
     V_lambda_est = VF(x, l_1, l_2, l_3, l_4)
 
-    J_hat = J_est(x, l_1, l_2)
+    J_hat = J_est(x, l_1)
     J_hat = pmax(J_hat, 0)
     S_lambda_est <- 2/sqrt(J_hat+0.5)
 
