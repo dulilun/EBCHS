@@ -2,7 +2,7 @@
 % Please edit documentation in R/EB_CS.R
 \name{EB_CS}
 \alias{EB_CS}
-\title{Main function used in the paper (Du and Hu, 2020+)}
+\title{Main function used in the paper (Du and Hu, 2020)}
 \usage{
 EB_CS(
   x,
@@ -21,13 +21,14 @@ EB_CS(
 
 \item{method}{LS: parametric least-squares; PLS: penalized least-squares; g-model: g-modeling}
 
-\item{mixture}{FALSE: there is no a point mass at zero}
+\item{mixture}{default is FALSE: there is no a point mass at zero}
 }
 \value{
 a list: posterior mean, variance, and skewness estimates
 }
 \description{
-Main function used in the paper (Du and Hu, 2020+)
+Give a sequence of chi-squared test statistics, the posterior mean, variance, and skewness
+of the noncentrality parameter given the data are derived.
 }
 \examples{
 set.seed(2020)

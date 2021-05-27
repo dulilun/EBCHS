@@ -3,5 +3,3 @@
 export(EB_CS)
 export(density_LS)
 export(density_PLS)
-export(density_g_model)
-export(predictive_recursion)
