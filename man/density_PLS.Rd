@@ -15,11 +15,10 @@ density_PLS(x, qq)
 a list: the first and second density derivatives
 }
 \description{
-The semiparametric method is employed to estimate the log-density derivatives of
-the chi-squared test statistics
+The semiparametric model is employed to estimate the log density derivatives of
+the chi-squared statistics.
 }
 \examples{
-set.seed(2021)
 p = 1000
 k = 7
 # the prior distribution for lambda
@@ -27,7 +26,7 @@ alpha = 2
 beta =  10
 # lambda
 lambda = rep(0, p)
-pi_0 = 0
+pi_0 = 0.5
 p_0 = floor(p*pi_0)
 p_1 = p-p_0
 lambda[(p_0+1):p] = stats::rgamma(p_1, shape = alpha, rate=1/beta)

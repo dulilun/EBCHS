@@ -1,7 +1,7 @@
 #' Penalized least-squares method
 #'
-#' The semiparametric method is employed to estimate the log-density derivatives of
-#' the chi-squared test statistics
+#' The semiparametric model is employed to estimate the log density derivatives of
+#' the chi-squared statistics.
 #'
 #' @param x a sequence of chi-squared test statistics
 #' @param qq the quantile used for splines
@@ -9,7 +9,6 @@
 #' @return a list: the first and second density derivatives
 #'
 #' @examples
-#' set.seed(2021)
 #' p = 1000
 #' k = 7
 #' # the prior distribution for lambda
@@ -17,7 +16,7 @@
 #' beta =  10
 #' # lambda
 #' lambda = rep(0, p)
-#' pi_0 = 0
+#' pi_0 = 0.5
 #' p_0 = floor(p*pi_0)
 #' p_1 = p-p_0
 #' lambda[(p_0+1):p] = stats::rgamma(p_1, shape = alpha, rate=1/beta)

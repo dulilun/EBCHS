@@ -1,18 +1,19 @@
 #' Main function used in the paper (Du and Hu, 2020)
 #'
-#' Give a sequence of chi-squared test statistics, the posterior mean, variance, and skewness
-#' of the noncentrality parameter given the data are derived.
+#' Give a sequence of chi-squared statistic values, the function computes the posterior mean, variance, and skewness
+#' of the noncentrality parameter given the data.
 #'
 #' @param x a sequence of chi-squared test statistics
 #' @param df the degrees of freedom
 #' @param qq the quantiles used in spline basis
 #' @param method LS: parametric least-squares; PLS: penalized least-squares; g-model: g-modeling
-#' @param mixture default is FALSE: there is no a point mass at zero
+#' @param mixture default is FALSE: there is no point mass at zero.
 #'
 #' @return a list: posterior mean, variance, and skewness estimates
 #'
+#' @references Du and Hu (2020), \emph{An Empirical Bayes Method for Chi-Squared Data}, \emph{Journal of American Statistical Association}, forthcoming.
+#'
 #' @examples
-#' set.seed(2020)
 #' p = 1000
 #' k = 7
 #' # the prior distribution for lambda
@@ -20,7 +21,7 @@
 #' beta =  10
 #' # lambda
 #' lambda = rep(0, p)
-#' pi_0 = 0
+#' pi_0 = 0.8
 #' p_0 = floor(p*pi_0)
 #' p_1 = p-p_0
 #' lambda[(p_0+1):p] = rgamma(p_1, shape = alpha, rate=1/beta)
@@ -28,11 +29,10 @@
 #' J = sapply(1:p, function(x){rpois(1, lambda[x]/2)})
 #' X = sapply(1:p, function(x){rchisq(1, k+2*J[x])})
 #' qq_set = seq(0.01, 0.99, 0.01)
-#' out = EB_CS(X, k, qq=qq_set, method='LS', mixture = FALSE)
+#' out = EB_CS(X, k, qq=qq_set, method='LS', mixture = TRUE)
 #' E = out$E_lambda
 #' V = out$V_lambda
-#' UP = E+1.645*V^(1/2)
-#' LOW = E-1.645*V^(1/2)
+#' S = out$S_lambda
 #'
 #' @export
 EB_CS <- function(x,
@@ -41,6 +41,7 @@ EB_CS <- function(x,
                   method=c('LS', 'PLS', 'g_model'),
                   mixture=FALSE){
   # Predictive recursion by Newton (2002)
+  # used to learn the prior distribution by discretization
   predictive_recursion <- function(x, k){
 
     p = length(x)
@@ -82,7 +83,7 @@ EB_CS <- function(x,
     return(out)
   }
 
-  # the g-modeling method
+  # the g-modeling method in Efron (2016)
   density_g_model <- function(x, k, pi_0, lambda_set, g_prior){
 
     # dir: the order of derivative: chi-squared distribution
@@ -166,7 +167,7 @@ EB_CS <- function(x,
     return(den)
   }
 
-  # Tweedies' formula for posterior mean
+  # Tweedie's formula for posterior mean
   MF <- function(x, l_1, l_2){
     g_k_2_g_est = 1+2*l_1
     g_k_4_g_est = 4*l_2+(1+2*l_1)^2
@@ -206,6 +207,7 @@ EB_CS <- function(x,
 
   # default method
   method = match.arg(method)
+
   if(method=='LS'){
     E_lambda_est = MF(x, l_1p, l_2p)
     V_lambda_est = VF(x, l_1p, l_2p, l_3p, l_4p)
@@ -251,8 +253,10 @@ EB_CS <- function(x,
 
     # prior and pi_0
     if(method=='g_model'){
+      pi_0 = pi_0
       g_k = g_k
     }else{
+      # other methods also requires g_k
       out_pr = predictive_recursion(x, k)
       pi_0 = out_pr$pi_0
       g_prior = out_pr$g_prior

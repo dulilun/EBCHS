@@ -21,17 +21,16 @@ EB_CS(
 
 \item{method}{LS: parametric least-squares; PLS: penalized least-squares; g-model: g-modeling}
 
-\item{mixture}{default is FALSE: there is no a point mass at zero}
+\item{mixture}{default is FALSE: there is no point mass at zero.}
 }
 \value{
 a list: posterior mean, variance, and skewness estimates
 }
 \description{
-Give a sequence of chi-squared test statistics, the posterior mean, variance, and skewness
-of the noncentrality parameter given the data are derived.
+Give a sequence of chi-squared statistic values, the function computes the posterior mean, variance, and skewness
+of the noncentrality parameter given the data.
 }
 \examples{
-set.seed(2020)
 p = 1000
 k = 7
 # the prior distribution for lambda
@@ -39,7 +38,7 @@ alpha = 2
 beta =  10
 # lambda
 lambda = rep(0, p)
-pi_0 = 0
+pi_0 = 0.8
 p_0 = floor(p*pi_0)
 p_1 = p-p_0
 lambda[(p_0+1):p] = rgamma(p_1, shape = alpha, rate=1/beta)
@@ -47,10 +46,12 @@ lambda[(p_0+1):p] = rgamma(p_1, shape = alpha, rate=1/beta)
 J = sapply(1:p, function(x){rpois(1, lambda[x]/2)})
 X = sapply(1:p, function(x){rchisq(1, k+2*J[x])})
 qq_set = seq(0.01, 0.99, 0.01)
-out = EB_CS(X, k, qq=qq_set, method='LS', mixture = FALSE)
+out = EB_CS(X, k, qq=qq_set, method='LS', mixture = TRUE)
 E = out$E_lambda
 V = out$V_lambda
-UP = E+1.645*V^(1/2)
-LOW = E-1.645*V^(1/2)
+S = out$S_lambda
 
+}
+\references{
+Du and Hu (2020), \emph{An Empirical Bayes Method for Chi-Squared Data}, \emph{Journal of American Statistical Association}, forthcoming.
 }

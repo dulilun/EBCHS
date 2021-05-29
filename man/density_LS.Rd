@@ -13,11 +13,10 @@ density_LS(x)
 a list: the first-to-fourth log density derivatives
 }
 \description{
-Assuming the log density of the chi-squared statistics has a parametric form, this function
-estimates the first-to-fourth order of log density derivatives
+Assuming the log density of the chi-squared statistics admits a parametric form, this function
+estimates up to the fourth order log density derivatives.
 }
 \examples{
-set.seed(2021)
 p = 1000
 k = 7
 # the prior distribution for lambda
@@ -25,7 +24,7 @@ alpha = 2
 beta =  10
 # lambda
 lambda = rep(0, p)
-pi_0 = 0
+pi_0 = 0.8
 p_0 = floor(p*pi_0)
 p_1 = p-p_0
 lambda[(p_0+1):p] = stats::rgamma(p_1, shape = alpha, rate=1/beta)
