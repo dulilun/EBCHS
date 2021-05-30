@@ -1,7 +1,7 @@
 Package: EBCHS
 Type: Package
 Title: An Empirical Bayes Method for Chi-Squared Data
-Version: 0.1.0.9000
+Version: 0.1.0
 Authors@R: c(person(given = "Lilun",
            family = "Du",
            role = c("aut", "cre"),
@@ -12,8 +12,8 @@ Authors@R: c(person(given = "Lilun",
            email = "imichu@ust.hk"))
 Author: Lilun Du [aut, cre],
   Inchi Hu [aut]
-Maintainer: Lilun DU <dulilun@ust.hk>
-Description: This package provoides the main R functions to compute the posterior interval for the noncentrality parameter of the chi-squared distribution. The skewness estimate of the posterior distribution is also available to improve the coverage rate of posterior intervals. Details can be found in the following link: https://amstat.tandfonline.com/doi/full/10.1080/01621459.2020.1777137#.YLAPsZMzbwM.  
+Maintainer: Lilun Du <dulilun@ust.hk>
+Description: We provide the main R functions to compute the posterior interval for the noncentrality parameter of the chi-squared distribution. The skewness estimate of the posterior distribution is also available to improve the coverage rate of posterior intervals. Details can be found in the following link: <https://amstat.tandfonline.com/doi/full/10.1080/01621459.2020.1777137#.YLAPsZMzbwM>.  
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

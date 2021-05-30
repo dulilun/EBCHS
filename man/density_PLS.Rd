@@ -9,7 +9,7 @@ density_PLS(x, qq)
 \arguments{
 \item{x}{a sequence of chi-squared test statistics}
 
-\item{qq}{the quantile used for splines}
+\item{qq}{the quantiles used for splines}
 }
 \value{
 a list: the first and second density derivatives

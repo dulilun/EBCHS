@@ -4,7 +4,7 @@
 #' the chi-squared statistics.
 #'
 #' @param x a sequence of chi-squared test statistics
-#' @param qq the quantile used for splines
+#' @param qq the quantiles used for splines
 #'
 #' @return a list: the first and second density derivatives
 #'
