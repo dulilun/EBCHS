@@ -22,7 +22,13 @@ EBCHS is a package for the our new paper: An Empirical Bayes Method for Chi-Squa
 
 ## Installation
 
-You can install the development version from [GitHub](https://github.com/) with:
+You can install the released version of EBCHS from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("EBCHS")
+```
+
+and the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")

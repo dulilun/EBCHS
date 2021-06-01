@@ -13,7 +13,7 @@ Authors@R: c(person(given = "Lilun",
 Author: Lilun Du [aut, cre],
   Inchi Hu [aut]
 Maintainer: Lilun Du <dulilun@ust.hk>
-Description: We provide the main R functions to compute the posterior interval for the noncentrality parameter of the chi-squared distribution. The skewness estimate of the posterior distribution is also available to improve the coverage rate of posterior intervals. Details can be found in the following link: <https://amstat.tandfonline.com/doi/full/10.1080/01621459.2020.1777137#.YLAPsZMzbwM>.  
+Description: We provide the main R functions to compute the posterior interval for the noncentrality parameter of the chi-squared distribution. The skewness estimate of the posterior distribution is also available to improve the coverage rate of posterior intervals. Details can be found in Du and Hu (2020) <doi:10.1080/01621459.2020.1777137>.  
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
