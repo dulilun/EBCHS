@@ -243,7 +243,7 @@ EB_CS <- function(x,
     E_lambda_est = MF(x, l_1, l_2)
     V_lambda_est = VF(x, l_1, l_2, l_3, l_4)
 
-    J_hat = J_est(x, l_1)
+    J_hat = J_est(x, l_1, k)
     J_hat = pmax(J_hat, 0)
     S_lambda_est <- 2/sqrt(J_hat+0.5)
 
