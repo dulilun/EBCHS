@@ -1,4 +1,4 @@
-#' Penalized least-squares method
+#' Penalized least-squares method in Du and Hu (2022)
 #'
 #' The semiparametric model is employed to estimate the log density derivatives of
 #' the chi-squared statistics.
