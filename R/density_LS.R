@@ -1,7 +1,7 @@
 #' log-density derivatives--parametric approach
 #'
 #' Assuming the log density of the chi-squared statistics admits a parametric form, this function
-#' estimates up to the fourth order log density derivatives.
+#' estimates up to the fourth order log-density derivatives.
 #'
 #' @param x a sequence of chi-squared test statistics
 #' @return a list: the first-to-fourth log density derivatives
