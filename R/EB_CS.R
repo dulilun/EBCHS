@@ -1,7 +1,7 @@
-#' Main function used in the paper (Du and Hu, 2020)
+#' Main function used in the paper (Du and Hu, 2022)
 #'
 #' Give a sequence of chi-squared statistic values, the function computes the posterior mean, variance, and skewness
-#' of the noncentrality parameter given the data.
+#' of the non-centrality parameter given the data.
 #'
 #' @param x a sequence of chi-squared test statistics
 #' @param df the degrees of freedom
@@ -11,7 +11,7 @@
 #'
 #' @return a list: posterior mean, variance, and skewness estimates
 #'
-#' @references Du and Hu (2020), \emph{An Empirical Bayes Method for Chi-Squared Data}, \emph{Journal of American Statistical Association}, forthcoming.
+#' @references Du and Hu (2022), \emph{An Empirical Bayes Method for Chi-Squared Data}, \emph{Journal of American Statistical Association}, forthcoming.
 #'
 #' @examples
 #' p = 1000
@@ -285,3 +285,4 @@ EB_CS <- function(x,
   out = list(E_lambda = E_lambda_est, V_lambda = V_lambda_est, S_lambda = S_lambda_est)
   return(out)
 }
+-----------------------------------
