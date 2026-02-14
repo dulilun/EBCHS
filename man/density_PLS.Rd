@@ -2,7 +2,7 @@
 % Please edit documentation in R/density_PLS.R
 \name{density_PLS}
 \alias{density_PLS}
-\title{Penalized least-squares method}
+\title{Penalized least-squares method in Du and Hu (2022)}
 \usage{
 density_PLS(x, qq)
 }

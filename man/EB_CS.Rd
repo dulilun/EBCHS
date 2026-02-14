@@ -2,7 +2,7 @@
 % Please edit documentation in R/EB_CS.R
 \name{EB_CS}
 \alias{EB_CS}
-\title{Main function used in the paper (Du and Hu, 2020)}
+\title{Main function used in the paper (Du and Hu, 2022)}
 \usage{
 EB_CS(
   x,
@@ -28,7 +28,7 @@ a list: posterior mean, variance, and skewness estimates
 }
 \description{
 Give a sequence of chi-squared statistic values, the function computes the posterior mean, variance, and skewness
-of the noncentrality parameter given the data.
+of the non-centrality parameter given the data.
 }
 \examples{
 p = 1000
@@ -53,5 +53,5 @@ S = out$S_lambda
 
 }
 \references{
-Du and Hu (2020), \emph{An Empirical Bayes Method for Chi-Squared Data}, \emph{Journal of American Statistical Association}, forthcoming.
+Du and Hu (2022), \emph{An Empirical Bayes Method for Chi-Squared Data}, \emph{Journal of American Statistical Association}, forthcoming.
 }

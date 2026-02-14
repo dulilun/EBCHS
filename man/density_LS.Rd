@@ -14,7 +14,7 @@ a list: the first-to-fourth log density derivatives
 }
 \description{
 Assuming the log density of the chi-squared statistics admits a parametric form, this function
-estimates up to the fourth order log density derivatives.
+estimates up to the fourth order log-density derivatives.
 }
 \examples{
 p = 1000
