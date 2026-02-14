@@ -4,6 +4,7 @@
 # EBCHS
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 EBCHS is a package for the our new paper: An Empirical Bayes Method for
@@ -69,7 +70,8 @@ df <- melt(Dat, id="X")
 pp = ggplot(df)+geom_line(aes(x=X, y=value, color=variable))+
   labs(title="Posterior Inteval")+ylim(c(-5, 80))+xlim(c(0, 100))
 pp
-#> Warning: Removed 22 row(s) containing missing values (geom_path).
+#> Warning: Removed 22 rows containing missing values or values outside the scale range
+#> (`geom_line()`).
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
